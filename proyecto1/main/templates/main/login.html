@@ -1,0 +1,106 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- ================================
+Start SEO blocks
+================================= -->
+{% block title %}{% endblock %}
+{% block decription %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+END SEO blocks
+================================= -->
+
+<!-- ================================
+Start CSS blocks
+================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+END CSS blocks
+================================= -->
+
+<!-- ================================
+Start script blocks
+================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+END script blocks
+================================= -->
+
+<!-- ================================
+Start Content
+================================= -->
+{% block content %}
+<!--Se crea una seccion con diseños para la pagina-->
+<section>
+    <div class="innerPageBannerCol">
+      <div class="container">
+        <div class="row g-4 g-md-3  align-items-center">
+          <div class="col-md-6">
+            <div class="bannerContent">
+              <h1 class="xlTitle pb-md-3">Login Section</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+<!--Se crea una clase en la que se le agregan parametros al diseño de la pagina-->
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <div class="d-flex justify-content-center">
+
+
+                <h3 id="form-title">LOGIN</h3>
+            </div>
+            <!--Se crea una clase en la que se le agregan parametros al diseño de la pagina-->
+            <div class="d-flex justify-content-center form_container">
+                <form method="POST" action="">
+                    <!--Se crea un token -->
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <!--Se crean diferentes diseños para el texto y la informacion que va a tener -->
+                        <input type="text" name="username" placeholder="Username..." class="form-control">
+                    </div>
+
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+ <!--Se crean diferentes diseños para el texto y la informacion que va a tener -->
+                            <input type="password" name="password" placeholder="Password..." class="form-control" >
+                    </div>
+ <!--Se crean diferentes diseños para el texto y la informacion que va a tener -->
+                        <div class="d-flex justify-content-center mt-3 login_container">
+                             <input class="btn btnPrimary" type="submit" value="Login">
+                           </div>
+                </form>
+
+            </div>
+ <!--Se crean diferentes diseños para el texto y la informacion que va a tener -->
+            {% for message in messages %}
+                <p id="messages">{{message}}</p>
+            {% endfor %}			
+     <!--Se crean diferentes diseños para el texto y la informacion que va a tener -->
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    Don't have an account? <a href="{% url 'main:register' %}" class="ml-2">Sign Up</a>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+<!-- ================================
+End Content
+================================= -->
